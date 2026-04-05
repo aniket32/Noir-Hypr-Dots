@@ -21,24 +21,33 @@ else
 fi
 
 #  Bootstrap YAY
+# Bootstrap Yay
 if ! command -v yay &> /dev/null; then
     echo "Yay not found. Bootstrapping Yay from AUR..."
-    
-    # Check if script is running as root; makepkg needs a standard user
+
+    # Must run as normal user
     if [ "$EUID" -eq 0 ]; then
-        echo "Error: Please do not run this script as root/sudo."
-        echo "The script will ask for sudo password when needed."
+        echo "Error: Please run this script as a normal user, not root."
         exit 1
     fi
 
+    # Ensure base-devel and git are installed first
+    sudo pacman -S --needed --noconfirm base-devel git
+
+    # Create temporary directory
     TEMP_DIR=$(mktemp -d)
+    echo "Cloning yay into $TEMP_DIR..."
     git clone https://aur.archlinux.org/yay.git "$TEMP_DIR" || { echo "Git clone failed"; exit 1; }
+
+    # Build and install yay
     pushd "$TEMP_DIR" > /dev/null || exit
-    makepkg -si --noconfirm
-    
-    # Return to original directory
+    echo "Building yay..."
+    makepkg -si --noconfirm || { echo "Yay build failed"; popd > /dev/null; rm -rf "$TEMP_DIR"; exit 1; }
     popd > /dev/null || exit
+
+    # Clean up
     rm -rf "$TEMP_DIR"
+    echo "Yay successfully installed!"
 else
     echo "Yay is already installed."
 fi
