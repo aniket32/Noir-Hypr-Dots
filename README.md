@@ -12,16 +12,14 @@ This setup is highly customized for my personal use and preferences.
 If you want to use it, please adjust some of the configs to fit your own needs.
 
 ## ## Installation
-
-1. **Clone the repository:**
-  git clone https://github.com/aniket32/Noir-Hyper-Dots.git
-  cd Noir-Hyper-Dots
-
-3. **Make the script executable:**
-   chmod +x install.sh
-   
-5. **Install:**
-   ./install.sh
+```bash
+# Clone the repo
+git clone https://github.com/aniket32/Noir-Hyper-Dots.git && cd Noir-Hyper-Dots
+# Make the install script executable
+chmod +x install.sh
+# Run the installation script
+./install.sh
+```
 
 ## Resources
 
