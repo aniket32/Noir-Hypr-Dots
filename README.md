@@ -1,3 +1,6 @@
+# Currently the install.sh script is not working, please manually copy over the config files
+
+
 # Personal Hyprland Dotfiles
 
 Hate, anxiety and sleep deprived Hyprland config born out of severy procrastination. Instead of writing papers, I wrote these configs. If you’re looking for academic productivity, this isn’t it. But if you want a “rice” that looks better than my experimental results, welcome aboard.
