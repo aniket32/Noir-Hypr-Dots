@@ -12,19 +12,19 @@ else
     AUR_HELPER="sudo pacman"
 fi
 
-echo "🚀 Starting installation for AB..."
+echo "Starting installation for AB..."
 
 # 1. Install Packages
 if [ -f "$PKG_FILE" ]; then
-    echo "📦 Installing explicit packages via $AUR_HELPER..."
+    echo "Installing explicit packages via $AUR_HELPER..."
     $AUR_HELPER -S --needed - < "$PKG_FILE"
 else
-    echo "❌ Error: $PKG_FILE not found."
+    echo "Error: $PKG_FILE not found."
     exit 1
 fi
 
 # 2. Setup Configs
-echo "📂 Backing up existing configs to $BACKUP_DIR"
+echo "Backing up existing configs to $BACKUP_DIR"
 mkdir -p "$BACKUP_DIR"
 
 cd "$SOURCE_DIR" || exit
@@ -43,4 +43,4 @@ for dir in *; do
     fi
 done
 
-echo "✅ Setup complete, G. Ready for a reboot."
+echo "Setup complete, G. Ready for a reboot."
