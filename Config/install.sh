@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# --- Configuration ---
 # Get the directory where the script is located to ensure paths are absolute
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_DIR="$SCRIPT_DIR/Config"
@@ -12,7 +11,7 @@ YAY_PKG="$SOURCE_DIR/yay.txt"
 
 echo "Starting installation for AB..."
 
-# 1. Install Base Dependencies & Pacman Packages
+#  Install Base Dependencies & Pacman Packages
 if [ -f "$PACMAN_PKG" ]; then
     echo "Updating system and installing official packages..."
     sudo pacman -Syu --needed base-devel git - < "$PACMAN_PKG"
@@ -21,8 +20,7 @@ else
     exit 1
 fi
 
-# 2. Bootstrap YAY
-# 2. Bootstrap YAY
+#  Bootstrap YAY
 if ! command -v yay &> /dev/null; then
     echo "Yay not found. Bootstrapping Yay from AUR..."
     
@@ -35,14 +33,7 @@ if ! command -v yay &> /dev/null; then
 
     TEMP_DIR=$(mktemp -d)
     git clone https://aur.archlinux.org/yay.git "$TEMP_DIR" || { echo "Git clone failed"; exit 1; }
-    
-    # Enter temp directory
     pushd "$TEMP_DIR" > /dev/null || exit
-    
-    # Build and install
-    # -s: install dependencies via pacman
-    # -i: install the package after building
-    # --noconfirm: skip prompts
     makepkg -si --noconfirm
     
     # Return to original directory
@@ -52,7 +43,7 @@ else
     echo "Yay is already installed."
 fi
 
-# 3. Install AUR Packages
+# Install AUR Packages
 if [ -f "$YAY_PKG" ]; then
     echo "Installing AUR packages via yay..."
     yay -S --needed --noconfirm - < "$YAY_PKG"
@@ -60,7 +51,7 @@ else
     echo "$YAY_PKG not found, skipping AUR install."
 fi
 
-# 4. Setup Configs
+# Setup Configs
 echo "Backing up existing configs to $BACKUP_DIR"
 mkdir -p "$BACKUP_DIR"
 
@@ -69,13 +60,9 @@ if [ -d "$SOURCE_DIR" ]; then
     for dir in *; do
         if [ -d "$dir" ]; then
             TARGET="$HOME/.config/$dir"
-            
-            # If the target exists (file or link), move it to backup
             if [ -e "$TARGET" ] || [ -L "$TARGET" ]; then
                 mv "$TARGET" "$BACKUP_DIR/"
             fi
-            
-            # Create symbolic link
             echo "Linking: $dir -> $TARGET"
             ln -s "$SOURCE_DIR/$dir" "$TARGET"
         fi
@@ -91,7 +78,7 @@ echo "System will reboot in 10 seconds..."
 echo "Press Ctrl+C to cancel reboot and check logs."
 echo "-------------------------------------------"
 
-# 5. Countdown and Reboot
+# Countdown and Reboot
 sleep 10
 echo "Rebooting now..."
 sudo reboot now
