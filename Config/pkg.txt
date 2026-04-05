@@ -40,7 +40,6 @@ qt5-declarative
 rofi
 sddm
 sddm-kcm
-sddm-silent-theme
 slurp
 solaar
 sudo
