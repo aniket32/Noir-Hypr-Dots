@@ -18,3 +18,11 @@ Hate, anxiety and sleep deprived Hyprland config born out of severy procrastinat
    chmod +x install.sh
 3. **Install:**
    ./install.sh
+
+## ## Resource
+
+sameAspect: www.youtube.com/watch?v=Pqlk6KDqDJo&t=7805s
+https://github.com/hyprwm/hyprland
+https://github.com/adi1090x/rofi
+https://github.com/alexays/waybar
+https://github.com/morhetz/gruvbox
