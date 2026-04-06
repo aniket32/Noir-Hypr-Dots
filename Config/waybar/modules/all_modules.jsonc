@@ -6,7 +6,7 @@
         "~/.config/waybar/modules/bluetooth.jsonc",
         "~/.config/waybar/modules/network.jsonc",
         // Audio
-        "~/.config/waybar/modules/pulseaudio_slider.jsonc",
+        "~/.config/waybar/modules/pulse_slider.jsonc",
         "~/.config/waybar/modules/play_pause.jsonc",
         "~/.config/waybar/modules/wireplumber.jsonc",
         "~/.config/waybar/modules/cava.jsonc",
