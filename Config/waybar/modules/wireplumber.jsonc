@@ -1,5 +1,5 @@
 {
-    "pulseaudio": {
+    "wireplumber": {
         // "format": "{volume}% {icon}",
         "format": "{icon}",
         "format-bluetooth": "{volume}% {icon}",
@@ -7,9 +7,9 @@
         "format-icons": {
             "headphone": "",
             "headset": "",
-            "phone": "",
-            "phone-muted": "",
-            "portable": "",
+            // "phone": "",
+            // "phone-muted": "",
+            // "portable": "",
             "default": [
                 "",
                 "",
@@ -17,6 +17,7 @@
                 ""
             ]
         },
+        "tooltip-format": "{node_name}: {volume}%",
         "scroll-step": 5,
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",

@@ -4,7 +4,7 @@
     all: unset;
     font-family: "JetBrainsMono Nerd Font Propo", "JetBrainsMono Nerd Font", "Symbols Nerd Font", sans-serif;
 }
-
+/* Pill default state */
 #wlr-taskbar,
 #workspaces,
 #taskbar,
@@ -29,7 +29,7 @@
     transition: all 300ms ease-in-out;
 }
 
-
+/* Pill hover state */
 #wlr-taskbar:hover,
 #workspaces:hover,
 #taskbar:hover,
@@ -48,6 +48,7 @@
     border: 1px solid @border-dim;
 }
 
+/* Pill active style */
 #wlr-taskbar:active,
 #workspaces:active,
 #taskbar:active,
@@ -96,7 +97,7 @@
     margin-right: 15px;
 }
 
-#pill-right2 #pulseaudio {
+#pill-right2 #wireplumber {
     margin-right: 15px;
 }
 #pill-right2 #pulseaudio-slider {
