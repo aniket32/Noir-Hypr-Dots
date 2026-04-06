@@ -67,6 +67,30 @@ else
     exit 1
 fi
 
+# Define Icon Set Variables
+ICON_URL="https://bitbucket.org/dirn-typo/yet-another-monochrome-icon-set/get/main.tar.gz"
+ICON_DEST="$HOME/.local/share/icons"
+
+echo "Installing Yet Another Monochrome Icon Set..."
+
+# Ensure the local icons directory exists
+mkdir -p "$ICON_DEST"
+
+# Download and extract directly to the icons folder
+# -L follows redirects, tar --strip-components=1 removes the top-level folder from the archive
+echo "Downloading and extracting icons..."
+TEMP_ICON_DIR=$(mktemp -d)
+curl -L "$ICON_URL" | tar -xz -C "$TEMP_ICON_DIR"
+
+# Move the actual icon folders to the destination
+# Assuming the repo contains folders that are valid icon themes
+cp -r "$TEMP_ICON_DIR"/* "$ICON_DEST/"
+
+# Cleanup
+rm -rf "$TEMP_ICON_DIR"
+
+echo "Icon set installed to $ICON_DEST"
+
 echo "Setup complete"
 echo "System will reboot in 10 seconds..."
 echo "Press Ctrl+C to cancel reboot and check logs."
