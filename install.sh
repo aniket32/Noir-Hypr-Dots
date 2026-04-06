@@ -131,6 +131,13 @@ post_install() {
         sudo systemctl start power-profiles-daemon
     fi
 
+    # Install and Update XDG User Directories
+    echo "Initializing XDG User Directories for Thunar..."
+    if ! command -v xdg-user-dirs-update &> /dev/null; then
+        sudo pacman -S --needed --noconfirm xdg-user-dirs
+    fi
+    xdg-user-dirs-update
+
 }
 
 post_install
