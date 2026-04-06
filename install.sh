@@ -93,6 +93,25 @@ rm -rf "$TEMP_ICON_DIR"
 
 echo "Icon set installed to $ICON_DEST"
 
+# SDDM theme
+setup_sddm() {
+    echo "Configuring SDDM with Silent theme..."
+
+    # Ensure the configuration directory exists
+    sudo mkdir -p /etc/sddm.conf.d
+
+    # Write your specific configuration
+    sudo bash -c 'cat <<EOF > /etc/sddm.conf.d/theme.conf
+[General]
+InputMethod=qtvirtualkeyboard
+GreeterEnvironment=QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard
+
+[Theme]
+Current=silent
+EOF'
+
+}
+
 # Post-install setup 
 echo "Running post-install setup for services and additional configuration..."
 
@@ -170,6 +189,7 @@ EOF
 }
 
 post_install
+setup_sddm
 
 echo "Setup complete"
 echo "System will reboot in 10 seconds..."
