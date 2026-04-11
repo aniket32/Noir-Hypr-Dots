@@ -7,8 +7,9 @@
         "~/.config/waybar/modules/network.jsonc",
         // Audio
         "~/.config/waybar/modules/pulse_slider.jsonc",
-        "~/.config/waybar/modules/play_pause.jsonc",
         "~/.config/waybar/modules/wireplumber.jsonc",
+        "~/.config/waybar/modules/microphone.jsonc",
+        "~/.config/waybar/modules/play_pause.jsonc",
         "~/.config/waybar/modules/cava.jsonc",
         // Power and Battery
         "~/.config/waybar/modules/power_profile.jsonc",

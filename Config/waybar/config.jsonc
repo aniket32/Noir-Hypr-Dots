@@ -17,7 +17,7 @@
             "modules": ["network", "bluetooth"]},
 
         "group/pill-right2": {"orientation": "inherit",
-            "modules": ["wireplumber","custom/media","pulseaudio/slider"]}
+            "modules": ["pulseaudio#microphone", "wireplumber","custom/media","pulseaudio/slider"]}
     },
     // --- MONITOR 2 ---
     {

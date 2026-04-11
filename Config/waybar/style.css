@@ -97,13 +97,19 @@
     margin-right: 15px;
 }
 
+#pill-right2 #pulseaudio.microphone{
+    margin-right: 15px;
+}
+
 #pill-right2 #wireplumber {
     margin-right: 15px;
 }
+
 #pill-right2 #pulseaudio-slider {
     padding: 0;
     margin: 0;
 }
+
 #pill-right2 #pulseaudio-slider slider {
     min-height: 0px;
     min-width: 0px;
@@ -112,12 +118,14 @@
     border: none;
     box-shadow: none;
 }
+
 #pill-right2 #pulseaudio-slider trough {
     min-height: 10px;
     min-width: 80px;
     border-radius: 5px;
     background: black;
 }
+
 #pill-right2 #pulseaudio-slider highlight {
     min-width: 10px;
     border-radius: 5px;
